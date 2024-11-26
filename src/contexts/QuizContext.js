@@ -73,6 +73,9 @@ function QuizProvider({ children }) {
     dispatch,
   ] = useReducer(reducer, initialState);
 
+  const questionsNum = questions.length;
+  const totalPoints = questions.reduce((acc, cur) => acc + cur.points, 0);
+
   useEffect(function () {
     fetch("http://localhost:3001/questions")
       .then((res) => res.json())
@@ -93,6 +96,8 @@ function QuizProvider({ children }) {
         points,
         highscore,
         timeRemaining,
+        questionsNum,
+        totalPoints,
         dispatch,
       }}
     >

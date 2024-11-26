@@ -1,9 +1,7 @@
 import { useQuiz } from "../contexts/QuizContext";
 
 function Progress() {
-  const { answer, index, points, questions } = useQuiz();
-  const questionsNum = questions.length;
-  const totalPoints = questions.reduce((acc, cur) => acc + cur.points, 0);
+  const { answer, index, points, questionsNum, totalPoints } = useQuiz();
 
   return (
     <div className="progress">
